@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!-- Milo Abfahrtskontrolle 1.5.0 – App für die Fahrer. Die Daten liegen geschützt auf der Webseite von Milo Reisen, nicht hier. -->
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2279b3">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Abfahrt">
+<meta name="application-name" content="Abfahrt">
+<meta name="format-detection" content="telephone=no">
+<title>Abfahrtskontrolle – Milo Reisen</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="app.css?v=167cf8699c">
+<style>:root{--m:#2279b3;--mi:#ffffff;--bnd:#2279b3;--tint:#e9f2f9;--m-d:#4694c8;--mi-d:#06192b;--bnd-d:#143b57;--tint-d:#183245;}</style>
+</head>
+<body>
+<div id="splash" class="splash" aria-hidden="true">
+  <div class="sp-in">
+    <div class="sp-emblem"><img src="logo/emblem-512.png" width="512" height="512" alt=""><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="47.6"/></svg></div>
+    <picture><source srcset="logo/schriftzug-hell.png" media="(prefers-color-scheme: dark)"><img class="sp-schrift" src="logo/schriftzug.png" width="1444" height="162" alt=""></picture>
+    <div class="tafel sp-tafel"><div class="tf-zeile"><span>Abfahrtskontrolle</span></div></div>
+  </div>
+</div>
+
+<header class="band" id="kopf">
+  <div class="band-in">
+    <div class="marke">
+      <img src="logo/emblem-256.png" width="40" height="40" alt="">
+      <div><b>Abfahrtskontrolle</b><small id="firma">Milo Reisen</small></div>
+    </div>
+    <button type="button" class="wer" id="wer" data-view="profil" aria-label="Profil öffnen" hidden></button>
+  </div>
+  <div class="offline" id="offline" hidden>Keine Internetverbindung – Eingaben bleiben auf dem Handy, gespeichert wird, sobald wieder Netz da ist.</div>
+</header>
+
+<main id="main">
+  <div class="start" id="start"></div>
+  <section class="view" id="v-start" hidden></section>
+  <section class="view" id="v-meine" hidden></section>
+  <section class="view" id="v-fs" hidden></section>
+  <section class="view" id="v-profil" hidden></section>
+  <section class="view" id="v-uebersicht" hidden></section>
+  <section class="view" id="v-maengel" hidden></section>
+  <section class="view" id="v-fahrzeuge" hidden></section>
+  <section class="view" id="v-fahrer" hidden></section>
+</main>
+
+<nav class="dock" id="tabs" aria-label="Bereiche" hidden></nav>
+<section class="flow" id="v-neu" aria-label="Abfahrtskontrolle" hidden></section>
+
+<div id="modal" class="modal" hidden><div class="m-panel" role="dialog" aria-modal="true" aria-labelledby="mTitel" id="mInhalt"></div></div>
+
+<div id="login" class="login" hidden>
+  <form id="lgForm" class="lg-karte">
+    <div class="lg-logo">
+      <img class="lg-emblem" src="logo/emblem-256.png" width="256" height="256" alt="">
+      <picture><source srcset="logo/schriftzug-hell.png" media="(prefers-color-scheme: dark)"><img class="lg-schrift" src="logo/schriftzug.png" width="1444" height="162" alt="Milo Reisen"></picture>
+    </div>
+    <div class="tafel lg-tafel"><div class="tf-zeile"><span>Abfahrtskontrolle</span><span class="tf-uhr" data-uhr></span></div></div>
+    <p id="lgHinweis" class="hinweis" hidden></p>
+    <label class="feld"><span>Name</span><input id="lgName" name="username" autocomplete="username" autocapitalize="words" required></label>
+    <label class="feld"><span>PIN</span><input id="lgPin" name="password" type="password" inputmode="numeric" autocomplete="current-password" maxlength="8" required></label>
+    <p id="lgFehler" class="fehler" role="alert"></p>
+    <button class="haupt breit" id="lgBtn" type="button" data-absenden>Anmelden</button>
+    <p class="mute klein">Name und PIN bekommst du von der Disposition.</p>
+    <div class="install" id="installLogin" hidden></div>
+  </form>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<noscript><p style="padding:20px">Bitte JavaScript aktivieren.</p></noscript>
+<script>window.MAK = {"extern": true, "ajax": "https://milo-reisen.de/wp-admin/admin-ajax.php", "ajaxAlt": ["https://www.milo-reisen.de/wp-admin/admin-ajax.php"], "tz": "Europe/Berlin", "firma": "Milo Reisen", "app": "", "sw": "sw.js", "scope": "./", "qr": "js/qrcode.js?v=79ec86f828", "icon": "icons/icon-192.png", "version": "1.5.0", "braucht": "1.5.0", "stand": "a66c2623c9"};</script>
+<script src="app.js?v=679df21dc1"></script>
+</body>
+</html>
+	
